@@ -44,7 +44,7 @@ export class ProductsController {
   @Post()
   @HttpCode(HttpStatus.CREATED)
   @Header("Cache-Control", "none")
-  @Header("Access-Control-Allow-Origin", "https://bekor.vercel.app")
+  @Header("Access-Control-Allow-Origin", "*")
   @Header("Access-Control-Allow-Methods", "POST")
   @Header("Access-Control-Allow-Headers", "Content-Type")
   @Header("Access-Control-Max-Age", "3600")
