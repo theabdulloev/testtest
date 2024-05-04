@@ -43,11 +43,15 @@ export class ProductsController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  @Header("Cache-Control", "none")
-  @Header("Access-Control-Allow-Origin", "https://bekor.vercel.app")
+  @Header('Cache-Control', 'none')
+  @Header('Access-Control-Allow-Origin', 'https://bekor.vercel.app')
+  @Header('Access-Control-Allow-Methods', 'POST')
+  @Header('Access-Control-Allow-Headers', 'Content-Type')
+  @Header('Access-Control-Max-Age', '3600')
   create(@Body() createProductDto: CreateProductDto): Promise<Product> {
-    return this.productsService.create(createProductDto);
+    return this.productsService.create(createProductDto)
   }
+
 
   @Delete(":id")
   remove(@Param("id") id: string): Promise<Product> {
