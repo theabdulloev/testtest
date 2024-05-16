@@ -15,6 +15,19 @@ import { TelegrafModule } from "nestjs-telegraf";
     TelegrafModule.forRoot({
       token: "6914168476:AAEyNpmUF1TkDf6E-I5m4eccVbvZ23T94Kw",
     }),
+    TelegrafModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        token: configService.get<string>('6914168476:AAEyNpmUF1TkDf6E-I5m4eccVbvZ23T94Kw'),
+        launchOptions: {
+          webhook: {
+            domain: 'https://ruznomatj.vercel.app',
+            path: '/ismoiljonabdulloev',
+          }
+        }
+      }),
+      inject: [ConfigService],
+    });
   ],
   controllers: [],
   providers: [],
