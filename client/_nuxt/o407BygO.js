@@ -1,0 +1,1 @@
+import{_ as c,x as t,A as n,v as o,R as s}from"./CAiLBtkj.js";const _={},a={class:"flex w-screen h-screen"};function r(f,d){const e=s;return o(),t("div",a,[n(e)])}const x=c(_,[["render",r]]);export{x as default};

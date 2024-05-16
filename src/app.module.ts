@@ -3,6 +3,7 @@ import { MongooseModule } from "@nestjs/mongoose";
 import { ProductsModule } from "./products/products.module";
 import { join } from "path";
 import { ServeStaticModule } from "@nestjs/serve-static";
+import { TelegrafModule } from "nestjs-telegraf";
 // mongodb+srv://abdulloev:0CSxryhOnWJEhipW@tojikonbookcl.jsrcsga.mongodb.net/?retryWrites=true&w=majority
 @Module({
   imports: [
@@ -10,7 +11,10 @@ import { ServeStaticModule } from "@nestjs/serve-static";
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, "..", "client"),
     }),
-    MongooseModule.forRoot(`mongodb+srv://abdulloev:0CSxryhOnWJEhipW@tojikonbookcl.jsrcsga.mongodb.net/?retryWrites=true&w=majority`),
+    MongooseModule.forRoot(`mongodb://127.0.0.1:27017/admin`),
+    TelegrafModule.forRoot({
+      token: "6914168476:AAEyNpmUF1TkDf6E-I5m4eccVbvZ23T94Kw",
+    }),
   ],
   controllers: [],
   providers: [],
